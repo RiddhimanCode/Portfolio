@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio & Resume</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f5f7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .btn-download {
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        .btn-download:hover {
+            background-color: #0052a3;
+        }
+
+        /* Main Content / Resume Container */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .resume-wrapper {
+            width: 100%;
+            height: 82vh;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Mobile Optimization Frame fallback */
+        .mobile-fallback {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            width: 100%;
+        }
+
+        /* Responsive Adjustments for Mobile Devices */
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+            /* Some mobile browsers struggle to render embedded PDFs smoothly inside iframes */
+            .resume-wrapper {
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Professional Portfolio</h1>
+        <!-- Direct download link for visitors -->
+        <a href="resume.pdf" download="My_Resume.pdf" class="btn-download">Download PDF</a>
+    </header>
+
+    <main>
+        <div class="resume-wrapper">
+            <!-- Embeds the PDF. Make sure your file is named 'resume.pdf' in the same folder -->
+            <iframe src="resume.pdf#toolbar=0" type="application/pdf">
+                <p>It appears your browser doesn't support embedded PDFs. 
+                <a href="resume.pdf">Click here to view the PDF directly.</a></p>
+            </iframe>
+        </div>
+    </main>
+
+</body>
+</html>
